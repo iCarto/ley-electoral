@@ -1,0 +1,192 @@
+
+
+/*.panel > h1{
+color: white;
+}*/
+
+.pp,
+.psoe,
+.ciu,
+.iu,
+.amaiur,
+.upyd,
+.pnv,
+.esquerra,
+.bng,
+.cc,
+.compromis,
+.fac,
+.gbai,
+.equo,
+.pacma,
+.eb,
+.pa,
+.pxc
+{
+  margin-right: 1em;
+}
+
+.pp{
+  color: #349BDD;
+  background-color: #349BDD;
+  margin-right: 1em;
+}
+
+.psoe{
+  color: #DB0024;
+  background-color: #DB0024;
+}
+
+.ciu{
+  color: #001D59;
+  background-color: #001D59;
+}
+
+.iu{
+  color: #8F2222;
+  background-color: #8F2222;
+}
+
+.amaiur{
+  color: #0E8D9E;
+  background-color: #0E8D9E;
+}
+
+.upyd{
+  color: #E20183;
+  background-color: #E20183;
+}
+
+.pnv{
+  color: #009526;
+  background-color: #009526;
+}
+
+.esquerra{
+  color: #F79F21;
+  background-color: #F79F21;
+}
+
+.bng{
+  color: #9CC1E6;
+  background-color: #9CC1E6;
+}
+
+.cc{
+  color: #FFFF96;
+  background-color: #FFFF96;
+}
+
+.compromis{
+  color: #626231;
+  background-color: #626231;
+}
+
+.fac{
+  color: #003784;
+  background-color: #003784;
+}
+
+.gbai{
+  color: #8D838B;
+  background-color: #8D838B;
+}
+
+.equo{
+  color: green;
+  background-color: green;
+}
+
+.pacma{
+  color: orange;
+  background-color: orange;
+}
+
+.eb{
+  color: pink;
+  background-color: pink;
+}
+
+.pa{
+  color: violet;
+  background-color: violet;
+}
+
+.pxc{
+  color: #c51b8a;
+  background-color: #c51b8a;
+}
+
+.ciudadanos{
+  color: #F86D2B;
+  background-color: #F86D2B;
+}
+
+.podemos{
+  color: #5F2D60;
+  background-color: #5F2D60;
+}
+
+.percent,
+.seats{
+  color: #555;
+  font-weight: bold;
+}
+
+.up{
+  /*color: #91D2CB;*/
+  color: white;
+  background-color: green;
+  /*font-weight: bold;*/
+  /*border-left: 1px solid #aaa;*/
+}
+
+.down{
+  /*color: #FC9272;*/
+  /*color: #de2d26;*/
+  color: white;
+  background-color: red;
+  /*font-weight: bold;*/
+  /*border-left: 1px solid #aaa;*/
+}
+
+.up,
+.down,
+.equal{
+  font-weight: bold;
+}
+
+.percent{
+  font-weight: bold;
+  border-left: 1px solid #aaa;
+}
+
+td{
+  color: #AAA;
+}
+
+td span{
+  /*same as body*/
+  color: #555;
+}
+
+tr th,
+tr td{
+  text-align: center;
+}
+
+tr td:first-child {
+  text-align: left;
+}
+
+thead tr{
+  border-bottom: 2px solid #555;
+}
+
+tbody tr{
+  border-bottom: 1px solid #AAA;
+}
+
+.map{
+  background-color: grey;
+}

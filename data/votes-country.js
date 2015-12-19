@@ -1,0 +1,36 @@
+var votesByCountry = [
+  {
+    "region": "España",
+    "seats": 350,
+    "total votes": 24590557,
+    "abstention": 9710775,
+    "invalid votes": 317886,
+    "blank votes": 333095,
+    "pp": 10830693,
+    "psoe": 6973880,
+    "ciu": 1014263,
+    "iu": 1680810,
+    "amaiur": 333628,
+    "upyd": 1140242,
+    "pnv": 323517,
+    "esquerra": 256393,
+    "bng": 183279,
+    "cc": 143550,
+    "compromís": 125150,
+    "fac": 99173,
+    "gbai": 42411,
+    "equo": 215776,
+    "pacma": 101557,
+    "eb": 97706,
+    "pa": 76852,
+    "pxc": 59781,
+    "prc": 43903,
+    "pum+j": 27098,
+    "pcpe": 26436,
+    "pirata": 25180,
+    "anticapitalistas": 24456,
+    "uce": 16148,
+    "ph": 10047
+  }
+]
+;
