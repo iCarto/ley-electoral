@@ -51,7 +51,7 @@ function updateRegionToCountry(){
   setConfig({'groupBy': 'country'});
 }
 
-function updateBlock(newValue, baseValue, el, varEl, decimals=false){
+function updateBlock(newValue, baseValue, el, varEl, decimals){
   var variation;
   if(decimals){
     variation = (newValue - baseValue).toFixed(2);
