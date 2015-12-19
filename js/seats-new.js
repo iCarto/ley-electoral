@@ -119,5 +119,3 @@ function createRects(data){
   //     .text(function(d) { return d; });
 
 };
-
-svgNew();
