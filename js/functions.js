@@ -130,26 +130,12 @@ function setConfig(options){
 
   // TODO: use CDB to retrieve votes grouped by proper region
   if(groupBy === 'country'){
-    var votes = votesByCountry;
-    var seatsNew = seatsFromVotes(votes);
-    var proportionNew = calculateProportion(seatsNew[0]);
-    var proportionBase = calculateProportion(seatsCurrent);
-    //update viz
-    createRects(seatsNew);
-    updateTableSeats(seatsNew[0], seatsCurrent);
-    updateTableProportion(proportionNew, proportionBase);
+    doSetConfig(votesByCountry);
   } else if(groupBy === 'ccaa'){
-    var votes = votesByCCAA;
-    var seatsNew = seatsFromVotes(votes);
-    var proportionNew = calculateProportion(seatsNew[0]);
-    var proportionBase = calculateProportion(seatsCurrent);
-    //update viz
-    createRects(seatsNew);
-    updateTableSeats(seatsNew[0], seatsCurrent);
-    updateTableProportion(proportionNew, proportionBase);
+    doSetConfig(votesByCCAA);
   } else if (groupBy === 'province'){
-    // TODO: change fake functions for proper ones
-    var seatsNew = fakeSeatsByProvince();
+    var votes = votesByProvince;
+    var seatsNew = seatsFromVotes(votes);
     var proportionNew = calculateProportion(seatsCurrent);
     var proportionBase = calculateProportion(seatsCurrent);
     //update viz
@@ -160,9 +146,14 @@ function setConfig(options){
 
 }
 
-// TODO: remove and substitute for proper data
-function fakeSeatsByProvince(){
-  return [seatsCurrent];
+function doSetConfig(votes) {
+    var seatsNew = seatsFromVotes(votes);
+    var proportionNew = calculateProportion(seatsNew[0]);
+    var proportionBase = calculateProportion(seatsCurrent);
+    //update viz
+    createRects(seatsNew);
+    updateTableSeats(seatsNew[0], seatsCurrent);
+    updateTableProportion(proportionNew, proportionBase);
 }
 
 function getSeatsPercentage(seats){
