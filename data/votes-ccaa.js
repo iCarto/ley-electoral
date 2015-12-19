@@ -27,7 +27,8 @@ var votesByCCAA = [
     "dn": 781,
     "internet":603,
     "dec": 262,
-    "rps":248
+    "rps":248,
+    "others": 0
   },
   {
     "region": "Aragón",
@@ -50,7 +51,8 @@ var votesByCCAA = [
     "dec": 508 		,
     "ph": 461,
     "plib": 410,
-    "sxt": 165
+    "sxt": 165,
+    "others": 0
   },
   {
     "region": "Canarias",
@@ -72,7 +74,8 @@ var votesByCCAA = [
     "unidad del pueblo": 1130,
     "ph": 1038,
     "uce": 1008,
-    "sain": 309
+    "sain": 309,
+    "others": 0
   },
   {
     "region": "Cantabria",
@@ -95,6 +98,7 @@ var votesByCCAA = [
     "sain": 268,
     "ph": 264,
     "uce": 143,
+    "others": 0
   },
   {
     "region": "Castilla - La Mancha",
@@ -120,7 +124,8 @@ var votesByCCAA = [
     "pcas": 348,
     "anticapitalistas": 193,
     "cyd": 190,
-    "cdl": 179
+    "cdl": 179,
+    "others": 0
   },
   {
     "region": "Castilla y León",
@@ -150,7 +155,8 @@ var votesByCCAA = [
     "hd": 197,
     "rps": 192,
     "hartosorg":174,
-    "pfyv": 82
+    "pfyv": 82,
+    "others": 0
   },
   {
     "region": "Cataluña",
@@ -175,6 +181,7 @@ var votesByCCAA = [
     "hartosorg":1064,
     "pre-r":417,
     "pum+j":362,
+    "others": 0
   },
   {
     "region": "Ceuta",
@@ -190,7 +197,8 @@ var votesByCCAA = [
     "iu":577,
     "lv": 289,
     "pacma": 187,
-    "pum+j":63
+    "pum+j":63,
+    "others": 0
   },
   {
     "region": "Melilla",
@@ -205,6 +213,7 @@ var votesByCCAA = [
     "equo":427,
     "pacma": 135,
     "pum+j":79,
+    "others": 0
   },
   {
     "region": "Madrid",
@@ -229,7 +238,8 @@ var votesByCCAA = [
     "posi": 1710,
     "plib":1666,
     "sain": 1183,
-    "uce": 880
+    "uce": 880,
+    "others": 0
   },
   {
     "region": "Navarra",
@@ -249,7 +259,8 @@ var votesByCCAA = [
     "pum+j":1387,
     "sain": 1057,
     "uce": 351,
-    "dne": 0
+    "dne": 0,
+    "others": 0
   },
   {
     "region": "Valencia",
@@ -275,6 +286,7 @@ var votesByCCAA = [
     "cdl": 1539,
     "pirata":999,
     "posi": 283,
+    "others": 0
   },
   {
     "region": "Extremadura",
@@ -292,6 +304,7 @@ var votesByCCAA = [
     "pum+j": 1518,
     "cex": 1079,
     "uce":249,
+    "others": 0
   },
   {
     "region": "Galicia",
@@ -312,7 +325,8 @@ var votesByCCAA = [
     "uce": 1480,
     "c xxi": 1436,
     "sain": 869,
-    "ph": 674
+    "ph": 674,
+    "others": 0
   },
   {
     "region": "Baleares",
@@ -331,7 +345,8 @@ var votesByCCAA = [
     "pacma": 3615,
     "pum+j": 1084,
     "pfyv":1010,
-    "uce": 459
+    "uce": 459,
+    "others": 0
   },
   {
     "region": "La Rioja",
@@ -348,7 +363,8 @@ var votesByCCAA = [
     "pacma": 761,
     "pum+j": 677,
     "pcpe": 381,
-    "uce": 96
+    "uce": 96,
+    "others": 0
   },
   {
     "region": "País Vasco",
@@ -367,7 +383,8 @@ var votesByCCAA = [
     "pacma": 6417,
     "pum+j": 3466,
     "eb": 2884,
-    "uce": 1231
+    "uce": 1231,
+    "others": 0
   },
   {
     "region": "Principado de Asturias",
@@ -391,7 +408,8 @@ var votesByCCAA = [
     "pdyc": 297,
     "sain": 274,
     "ph": 270,
-    "uce": 204
+    "uce": 204,
+    "others": 0
   },
   {
     "region": "Murcia",
@@ -413,7 +431,8 @@ var votesByCCAA = [
     "prde": 673,
     "cyd": 527,
     "rps": 482,
-    "uce": 464
+    "uce": 464,
+    "others": 0
   },
 ]
 ;

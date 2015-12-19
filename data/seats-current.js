@@ -11,5 +11,10 @@ var seatsCurrent = {
   "cc":        2,
   "compromis": 1,
   "fac":       1,
-  "gbai":      1
+  "gbai":      1,
+  "equo":      0,
+  "pacma":     0,
+  "eb":        0,
+  "pa":        0,
+  "others":    0
 };

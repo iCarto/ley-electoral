@@ -1,5 +1,4 @@
 function updateThresholdTo0(){
-  console.log('update threshold to 0');
   $('#threshold-0').removeClass().addClass('active btn btn-default');
   $('#threshold-1').removeClass().addClass('btn btn-default');
   $('#threshold-3').removeClass().addClass('btn btn-default');
@@ -8,7 +7,6 @@ function updateThresholdTo0(){
 }
 
 function updateThresholdTo1(){
-  console.log('update threshold to 1');
   $('#threshold-0').removeClass().addClass('btn btn-default');
   $('#threshold-1').removeClass().addClass('active btn btn-default');
   $('#threshold-3').removeClass().addClass('btn btn-default');
@@ -17,7 +15,6 @@ function updateThresholdTo1(){
 }
 
 function updateThresholdTo3(){
-  console.log('update threshold to 3');
   $('#threshold-0').removeClass().addClass('btn btn-default');
   $('#threshold-1').removeClass().addClass('btn btn-default');
   $('#threshold-3').removeClass().addClass('active btn btn-default');
@@ -26,7 +23,6 @@ function updateThresholdTo3(){
 }
 
 function updateThresholdTo5(){
-  console.log('update threshold to 5');
   $('#threshold-0').removeClass().addClass('btn btn-default');
   $('#threshold-1').removeClass().addClass('btn btn-default');
   $('#threshold-3').removeClass().addClass('btn btn-default');
@@ -35,7 +31,6 @@ function updateThresholdTo5(){
 }
 
 function updateRegionToProvince(){
-  console.log('update region to province');
   $('#region-province').removeClass().addClass('active btn btn-default');
   $('#region-ccaa').removeClass().addClass('btn btn-default');
   $('#region-country').removeClass().addClass('btn btn-default');
@@ -43,7 +38,6 @@ function updateRegionToProvince(){
 }
 
 function updateRegionToCCAA(){
-  console.log('update region to CCAA');
   $('#region-province').removeClass().addClass('btn btn-default');
   $('#region-ccaa').removeClass().addClass('active btn btn-default');
   $('#region-country').removeClass().addClass('btn btn-default');
@@ -51,15 +45,19 @@ function updateRegionToCCAA(){
 }
 
 function updateRegionToCountry(){
-  console.log('update region to CCAA');
   $('#region-province').removeClass().addClass('btn btn-default');
   $('#region-ccaa').removeClass().addClass('btn btn-default');
   $('#region-country').removeClass().addClass('active btn btn-default');
   setConfig({'groupBy': 'country'});
 }
 
-function updateBlock(newValue, baseValue, el, varEl, units=""){
-  var variation = newValue - baseValue;
+function updateBlock(newValue, baseValue, el, varEl, decimals=false){
+  var variation;
+  if(decimals){
+    variation = (newValue - baseValue).toFixed(2);
+  }else{
+    variation = newValue - baseValue;
+  }
   el.html(newValue);
   varEl.html(variation);
 
@@ -98,132 +96,144 @@ function updateTableSeats(seatsNew, seatsBase){
 }
 
 function updateTableProportion(proportionNew, proportionBase){
-  updateBlock(proportionNew["pp"] || 0, proportionBase["pp"] || 0, $('#proportion-pp'), $('#proportion-var-pp'), '%');
-  updateBlock(proportionNew["psoe"] || 0, proportionBase["psoe"] || 0, $('#proportion-psoe'), $('#proportion-var-psoe'));
-  updateBlock(proportionNew["ciu"] || 0, proportionBase["ciu"] || 0, $('#proportion-ciu'), $('#proportion-var-ciu'));
-  updateBlock(proportionNew["iu"] || 0, proportionBase["iu"] || 0, $('#proportion-iu'), $('#proportion-var-iu'));
-  updateBlock(proportionNew["amaiur"] || 0, proportionBase["amaiur"] || 0, $('#proportion-amaiur'), $('#proportion-var-amaiur'));
-  updateBlock(proportionNew["upyd"] || 0, proportionBase["upyd"] || 0, $('#proportion-upyd'), $('#proportion-var-upyd'));
-  updateBlock(proportionNew["pnv"] || 0, proportionBase["pnv"] || 0, $('#proportion-pnv'), $('#proportion-var-pnv'));
-  updateBlock(proportionNew["esquerra"] || 0, proportionBase["esquerra"] || 0, $('#proportion-esquerra'), $('#proportion-var-esquerra'));
-  updateBlock(proportionNew["bng"] || 0, proportionBase["bng"] || 0, $('#proportion-bng'), $('#proportion-var-bng'));
-  updateBlock(proportionNew["cc"] || 0, proportionBase["cc"] || 0, $('#proportion-cc'), $('#proportion-var-cc'));
-  updateBlock(proportionNew["compromis"] || 0, proportionBase["compromis"] || 0, $('#proportion-compromis'), $('#proportion-var-compromis'));
-  updateBlock(proportionNew["fac"] || 0, proportionBase["fac"] || 0, $('#proportion-fac'), $('#proportion-var-fac'));
-  updateBlock(proportionNew["gbai"] || 0, proportionBase["gbai"] || 0, $('#proportion-gbai'), $('#proportion-var-gbai'));
-  updateBlock(proportionNew["equo"] || 0, proportionBase["equo"] || 0, $('#proportion-equo'), $('#proportion-var-equo'));
-  updateBlock(proportionNew["pacma"] || 0, proportionBase["pacma"] || 0, $('#proportion-pacma'), $('#proportion-var-pacma'));
-  updateBlock(proportionNew["eb"] || 0, proportionBase["eb"] || 0, $('#proportion-eb'), $('#proportion-var-eb'));
-  updateBlock(proportionNew["pa"] || 0, proportionBase["pa"] || 0, $('#proportion-pa'), $('#proportion-var-pa'));
-  updateBlock(proportionNew["others"] || 0, proportionBase["others"] || 0, $('#proportion-others'), $('#proportion-var-others'));
+  updateBlock(proportionNew["pp"] || 0, proportionBase["pp"] || 0, $('#proportion-pp'), $('#proportion-var-pp'), true);
+  updateBlock(proportionNew["psoe"] || 0, proportionBase["psoe"] || 0, $('#proportion-psoe'), $('#proportion-var-psoe'), true);
+  updateBlock(proportionNew["ciu"] || 0, proportionBase["ciu"] || 0, $('#proportion-ciu'), $('#proportion-var-ciu'), true);
+  updateBlock(proportionNew["iu"] || 0, proportionBase["iu"] || 0, $('#proportion-iu'), $('#proportion-var-iu'), true);
+  updateBlock(proportionNew["amaiur"] || 0, proportionBase["amaiur"] || 0, $('#proportion-amaiur'), $('#proportion-var-amaiur'), true);
+  updateBlock(proportionNew["upyd"] || 0, proportionBase["upyd"] || 0, $('#proportion-upyd'), $('#proportion-var-upyd'), true);
+  updateBlock(proportionNew["pnv"] || 0, proportionBase["pnv"] || 0, $('#proportion-pnv'), $('#proportion-var-pnv'), true);
+  updateBlock(proportionNew["esquerra"] || 0, proportionBase["esquerra"] || 0, $('#proportion-esquerra'), $('#proportion-var-esquerra'), true);
+  updateBlock(proportionNew["bng"] || 0, proportionBase["bng"] || 0, $('#proportion-bng'), $('#proportion-var-bng'), true);
+  updateBlock(proportionNew["cc"] || 0, proportionBase["cc"] || 0, $('#proportion-cc'), $('#proportion-var-cc'), true);
+  updateBlock(proportionNew["compromis"] || 0, proportionBase["compromis"] || 0, $('#proportion-compromis'), $('#proportion-var-compromis'), true);
+  updateBlock(proportionNew["fac"] || 0, proportionBase["fac"] || 0, $('#proportion-fac'), $('#proportion-var-fac'), true);
+  updateBlock(proportionNew["gbai"] || 0, proportionBase["gbai"] || 0, $('#proportion-gbai'), $('#proportion-var-gbai'), true);
+  updateBlock(proportionNew["equo"] || 0, proportionBase["equo"] || 0, $('#proportion-equo'), $('#proportion-var-equo'), true);
+  updateBlock(proportionNew["pacma"] || 0, proportionBase["pacma"] || 0, $('#proportion-pacma'), $('#proportion-var-pacma'), true);
+  updateBlock(proportionNew["eb"] || 0, proportionBase["eb"] || 0, $('#proportion-eb'), $('#proportion-var-eb'), true);
+  updateBlock(proportionNew["pa"] || 0, proportionBase["pa"] || 0, $('#proportion-pa'), $('#proportion-var-pa'), true);
+  updateBlock(proportionNew["others"] || 0, proportionBase["others"] || 0, $('#proportion-others'), $('#proportion-var-others'), true);
 }
+
 
 var ElectionsDefaultModel = {
   'groupBy': 'province',
   'seats': 350,
-  'minVotes': 2
-},
-ElectionsNewModel = {
-  'groupBy': ElectionsDefaultModel.groupBy,
-  'seats': ElectionsDefaultModel.seats,
-  'minVotes': ElectionsDefaultModel.minVotes
+  'threshold': 2
 };
 
 function setConfig(options){
-  ElectionsNewModel.groupBy = options.groupBy || ElectionsNewModel.groupBy;
-  ElectionsNewModel.seats = options.seats || ElectionsNewModel.seats;
-  ElectionsNewModel.minVotes = options.minVotes || ElectionsNewModel.minVotes;
-
+  var groupBy = options.groupBy || ElectionsDefaultModel.groupBy;
+  var seats = options.seats || ElectionsDefaultModel.seats;
+  var threshold = options.threshold || ElectionsDefaultModel.threshold;
 
   // TODO: use CDB to retrieve votes grouped by proper region
-  if(ElectionsNewModel.groupBy === 'country'){
+  if(groupBy === 'country'){
     var votes = votesByCountry;
     var seatsNew = seatsFromVotes(votes);
-    var proportionNew = calculateProportion();
-    var proportionBase = getProportionBase();
+    var proportionNew = calculateProportion(seatsNew[0]);
+    var proportionBase = calculateProportion(seatsCurrent);
     //update viz
     createRects(seatsNew);
     updateTableSeats(seatsNew[0], seatsCurrent);
     updateTableProportion(proportionNew, proportionBase);
-  } else if(ElectionsNewModel.groupBy === 'ccaa'){
+  } else if(groupBy === 'ccaa'){
     var votes = votesByCCAA;
     var seatsNew = seatsFromVotes(votes);
-    var proportionNew = calculateProportion();
-    var proportionBase = getProportionBase();
+    var proportionNew = calculateProportion(seatsNew[0]);
+    var proportionBase = calculateProportion(seatsCurrent);
     //update viz
     createRects(seatsNew);
     updateTableSeats(seatsNew[0], seatsCurrent);
     updateTableProportion(proportionNew, proportionBase);
-  } else if (ElectionsNewModel.groupBy === 'province'){
-    var votes = votesByProvince;
-    var seatsNew = seatsByProvince();
-    var proportionNew = calculateProportion();
-    var proportionBase = getProportionBase();
+  } else if (groupBy === 'province'){
+    // TODO: change fake functions for proper ones
+    var seatsNew = fakeSeatsByProvince();
+    var proportionNew = calculateProportion(seatsCurrent);
+    var proportionBase = calculateProportion(seatsCurrent);
     //update viz
     createRects(seatsNew);
     updateTableSeats(seatsNew[0], seatsCurrent);
     updateTableProportion(proportionNew, proportionBase);
-    // TODO: make it as the others
-    // var votes = votesByProvince;
-    // var seatsNew = seatsFromVotes(votes);
-    // var proportion = calculateProportion(votes, seatsNew);
-    // // update viz
-    // createRects(seatsNew);
-    // updateTableSeats(seatsNew[0], seatsCurrent);
-    // updateTableProportion(proportion, proportionCurrent);
   }
-  // TODO: include province in proper flux
 
 }
 
-// TODO: remove
-function seatsByProvince(){
+// TODO: remove and substitute for proper data
+function fakeSeatsByProvince(){
   return [seatsCurrent];
 }
 
-function getProportionBase(){
-  // TODO: implement
+function getSeatsPercentage(seats){
   return {
-    "pp":        "10",
-    "psoe":      "2",
-    "ciu":       "1",
-    "iu":        "0",
-    "amaiur":    "-1",
-    "upyd":      "0",
-    "pnv":       "-1",
-    "esquerra":  "0",
-    "bng":       "0",
-    "cc":        "-2",
-    "compromis": "",
-    "fac":       "0",
-    "gbai":      "1",
-    "equo":      "3",
-    "pacma":     "0",
-    "eb":        "0",
-    "pa":        "0"
+    "pp":        (seats["pp"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "psoe":      (seats["psoe"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "ciu":       (seats["ciu"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "iu":        (seats["iu"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "amaiur":    (seats["amaiur"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "upyd":      (seats["upyd"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "pnv":       (seats["pnv"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "esquerra":  (seats["esquerra"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "bng":       (seats["bng"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "cc":        (seats["cc"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "compromis": (seats["compromis"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "fac":       (seats["fac"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "gbai":      (seats["gbai"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "equo":      (seats["equo"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "pacma":     (seats["pacma"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "eb":        (seats["eb"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "pa":        (seats["pa"]*100 / ElectionsDefaultModel.seats).toFixed(2),
+    "others":    (seats["others"]*100 / ElectionsDefaultModel.seats).toFixed(2)
   };
 }
 
-function calculateProportion(){
-  // TODO: implement
+function getVotesPercentage(){
+  // shall these take into account all votes or only valid votes?
   return {
-    "pp":        "20",
-    "psoe":      "8",
-    "ciu":       "1",
-    "iu":        "0",
-    "amaiur":    "-1",
-    "upyd":      "0",
-    "pnv":       "-1",
-    "esquerra":  "0",
-    "bng":       "-1",
-    "cc":        "-1",
-    "compromis": "-1",
-    "fac":       "-1",
-    "gbai":      "0",
-    "equo":      "0",
-    "pacma":     "0",
-    "eb":        "0",
-    "pa":        "0"
+    "pp":        (votesByCountry[0]["pp"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "psoe":      (votesByCountry[0]["psoe"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "ciu":       (votesByCountry[0]["ciu"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "iu":        (votesByCountry[0]["iu"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "amaiur":    (votesByCountry[0]["amaiur"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "upyd":      (votesByCountry[0]["upyd"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "pnv":       (votesByCountry[0]["pnv"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "esquerra":  (votesByCountry[0]["esquerra"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "bng":       (votesByCountry[0]["bng"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "cc":        (votesByCountry[0]["cc"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "compromis": (votesByCountry[0]["compromis"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "fac":       (votesByCountry[0]["fac"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "gbai":      (votesByCountry[0]["gbai"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "equo":      (votesByCountry[0]["equo"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "pacma":     (votesByCountry[0]["pacma"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "eb":        (votesByCountry[0]["eb"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "pa":        (votesByCountry[0]["pa"]*100 / votesByCountry[0]["total votes"]).toFixed(2),
+    "others":    (votesByCountry[0]["others"]*100 / votesByCountry[0]["total votes"]).toFixed(2)
   };
+}
 
+function calculateProportion(seats){
+  var seats = getSeatsPercentage(seats);
+  var votes = getVotesPercentage();
+
+  return {
+    "pp":        (seats["pp"] - votes["pp"]).toFixed(2),
+    "psoe":      (seats["psoe"] - votes["psoe"]).toFixed(2),
+    "ciu":       (seats["ciu"] - votes["ciu"]).toFixed(2),
+    "iu":        (seats["iu"] - votes["iu"]).toFixed(2),
+    "amaiur":    (seats["amaiur"] - votes["amaiur"]).toFixed(2),
+    "upyd":      (seats["upyd"] - votes["upyd"]).toFixed(2),
+    "pnv":       (seats["pnv"] - votes["pnv"]).toFixed(2),
+    "esquerra":  (seats["esquerra"] - votes["esquerra"]).toFixed(2),
+    "bng":       (seats["bng"] - votes["bng"]).toFixed(2),
+    "cc":        (seats["cc"] - votes["cc"]).toFixed(2),
+    "compromis": (seats["compromis"] - votes["compromis"]).toFixed(2),
+    "fac":       (seats["fac"] - votes["fac"]).toFixed(2),
+    "gbai":      (seats["gbai"] - votes["gbai"]).toFixed(2),
+    "equo":      (seats["equo"] - votes["equo"]).toFixed(2),
+    "pacma":     (seats["pacma"] - votes["pacma"]).toFixed(2),
+    "eb":        (seats["eb"] - votes["eb"]).toFixed(2),
+    "pa":        (seats["pa"] - votes["pa"]).toFixed(2),
+    "others":    (seats["others"] - votes["others"]).toFixed(2),
+  };
 }

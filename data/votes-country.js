@@ -16,7 +16,7 @@ var votesByCountry = [
     "esquerra": 256393,
     "bng": 183279,
     "cc": 143550,
-    "compromís": 125150,
+    "compromis": 125150,
     "fac": 99173,
     "gbai": 42411,
     "equo": 215776,
@@ -30,7 +30,8 @@ var votesByCountry = [
     "pirata": 25180,
     "anticapitalistas": 24456,
     "uce": 16148,
-    "ph": 10047
+    "ph": 10047,
+    "others": 0
   }
 ]
 ;
