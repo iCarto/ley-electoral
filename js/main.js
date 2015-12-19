@@ -15,11 +15,13 @@ $( document ).ready(function() {
     sql_statement='SELECT province as region, seats as seats, total_votes as "total votes", abstention as abstention, invalid_votes as "invalid votes", blank_votes as "blank votes", pp as pp, psoe as psoe, ciu as ciu, iu as iu, amaiur as amaiur, upyd as upyd, pnv as pnv, esquerra as esquerra, bng as bng, cc as cc,  compromis as compromis, fac as fac, gbai as gbai, equo as equo, pacma as pacma, eb as eb, pa as pa, pxc as pxc, others as others  FROM tabla_votos'
     $.getJSON('https://icarto.cartodb.com/api/v2/sql/?q='+sql_statement, function(data) {
         votesByProvince = data.rows;
+        
+        svgNew();
+        svgOld();
+    
+        $('#region-btns button').prop('disabled', false);
+        $('#threshold-btns button').prop('disabled', false);
     });
 
-    svgNew();
-    svgOld();
     
-    $('#region-btns button').prop('disabled', false);
-    $('#threshold-btns button').prop('disabled', false);
 });
