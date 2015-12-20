@@ -3,7 +3,7 @@ function updateThresholdTo0(){
   $('#threshold-1').removeClass().addClass('btn btn-default');
   $('#threshold-3').removeClass().addClass('btn btn-default');
   $('#threshold-5').removeClass().addClass('btn btn-default');
-  setConfig({'threshold': 0});
+  setConfig();
 }
 
 function updateThresholdTo1(){
@@ -11,7 +11,7 @@ function updateThresholdTo1(){
   $('#threshold-1').removeClass().addClass('active btn btn-default');
   $('#threshold-3').removeClass().addClass('btn btn-default');
   $('#threshold-5').removeClass().addClass('btn btn-default');
-  setConfig({'threshold': 1});
+  setConfig();
 }
 
 function updateThresholdTo3(){
@@ -19,7 +19,7 @@ function updateThresholdTo3(){
   $('#threshold-1').removeClass().addClass('btn btn-default');
   $('#threshold-3').removeClass().addClass('active btn btn-default');
   $('#threshold-5').removeClass().addClass('btn btn-default');
-  setConfig({'threshold': 3});
+  setConfig();
 }
 
 function updateThresholdTo5(){
@@ -27,28 +27,28 @@ function updateThresholdTo5(){
   $('#threshold-1').removeClass().addClass('btn btn-default');
   $('#threshold-3').removeClass().addClass('btn btn-default');
   $('#threshold-5').removeClass().addClass('active btn btn-default');
-  setConfig({'threshold': 5});
+  setConfig();
 }
 
 function updateRegionToProvince(){
   $('#region-province').removeClass().addClass('active btn btn-default');
   $('#region-ccaa').removeClass().addClass('btn btn-default');
   $('#region-country').removeClass().addClass('btn btn-default');
-  setConfig({'groupBy':'province'});
+  setConfig();
 }
 
 function updateRegionToCCAA(){
   $('#region-province').removeClass().addClass('btn btn-default');
   $('#region-ccaa').removeClass().addClass('active btn btn-default');
   $('#region-country').removeClass().addClass('btn btn-default');
-  setConfig({'groupBy':'ccaa'});
+  setConfig();
 }
 
 function updateRegionToCountry(){
   $('#region-province').removeClass().addClass('btn btn-default');
   $('#region-ccaa').removeClass().addClass('btn btn-default');
   $('#region-country').removeClass().addClass('active btn btn-default');
-  setConfig({'groupBy': 'country'});
+  setConfig();
 }
 
 function updateBlock(newValue, baseValue, el, varEl, decimals){
@@ -120,13 +120,14 @@ function updateTableProportion(proportionNew, proportionBase){
 var ElectionsDefaultModel = {
   'groupBy': 'province',
   'seats': 350,
-  'threshold': 2
+  'threshold': 3
 };
 
-function setConfig(options){
-  var groupBy = options.groupBy || ElectionsDefaultModel.groupBy;
-  var seats = options.seats || ElectionsDefaultModel.seats;
-  var threshold = options.threshold || ElectionsDefaultModel.threshold;
+function setConfig(){
+  
+  var groupBy = $('#region-btns .active').attr('id').split('-')[1] || ElectionsDefaultModel.groupBy;
+  var seats = ElectionsDefaultModel.seats;
+  var threshold = $('#threshold-btns .active').attr('id').split('-')[1] || ElectionsDefaultModel.threshold;
 
   // TODO: use CDB to retrieve votes grouped by proper region
   if(groupBy === 'country'){
