@@ -520,7 +520,7 @@
 //   },
 // ];
 
-function seatsFromVotes(regions){
+function seatsFromVotes(regions, threshold){
   // TODO: introduce minVotes
 
   // var resultsByParty = [
@@ -541,7 +541,7 @@ function seatsFromVotes(regions){
   };
   var newSeats = [{}];
   regions.forEach(function(region){
-    var resultsByParty = transformData(region);
+    var resultsByParty = transformData(region, threshold);
     var result = computeDhondt(resultsByParty, region.seats, options);
     // console.log(result);
 
@@ -563,7 +563,7 @@ function seatsFromVotes(regions){
   // }];
 }
 
-function transformData(region){
+function transformData(region, threshold){
   var parties = Object.keys(region).filter(function(key){
     return (key != 'region'
     && key != 'seats'
@@ -573,10 +573,15 @@ function transformData(region){
     && key != 'blank votes');
   });
   // console.log('parties: ' + parties);
-
+  var minVotes = (region['total votes'] - region['invalid votes']) * (threshold / 100)
   var data = [];
   parties.forEach(function(p){
-    data.push({party: p, votes: region[p]});
+    data.push({
+        party: p,
+        // 0 votes is assigned to those parties that does not pass
+        // the threshold to avoid give seats to them
+        votes: region[p] > minVotes ? region[p] : 0
+    });
   });
   // console.log(data);
   return data;

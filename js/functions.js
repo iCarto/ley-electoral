@@ -131,12 +131,12 @@ function setConfig(){
 
   // TODO: use CDB to retrieve votes grouped by proper region
   if(groupBy === 'country'){
-    doSetConfig(votesByCountry);
+    doSetConfig(votesByCountry, threshold);
   } else if(groupBy === 'ccaa'){
-    doSetConfig(votesByCCAA);
+    doSetConfig(votesByCCAA, threshold);
   } else if (groupBy === 'province'){
     var votes = votesByProvince;
-    var seatsNew = seatsFromVotes(votes);
+    var seatsNew = seatsFromVotes(votes, threshold);
     var proportionNew = calculateProportion(seatsCurrent);
     var proportionBase = calculateProportion(seatsCurrent);
     //update viz
@@ -147,8 +147,8 @@ function setConfig(){
 
 }
 
-function doSetConfig(votes) {
-    var seatsNew = seatsFromVotes(votes);
+function doSetConfig(votes, threshold) {
+    var seatsNew = seatsFromVotes(votes, threshold);
     var proportionNew = calculateProportion(seatsNew[0]);
     var proportionBase = calculateProportion(seatsCurrent);
     //update viz
