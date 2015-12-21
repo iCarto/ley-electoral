@@ -152,14 +152,3 @@ function getVotesPercentage(){
   });
   return votesPercentage;
 }
-
-function calculateProportion(seats){
-  var seats = getSeatsPercentage(seats);
-  var votes = getVotesPercentage();
-
-  var proportion = {};
-  parties.forEach(function(party){
-    proportion[party] = (seats[party] - votes[party]).toFixed(2)
-  });
-  return proportion;
-}
