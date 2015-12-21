@@ -73,17 +73,18 @@ function updateBlock(newValue, baseValue, el, varEl, decimals){
   }
 }
 
-function updateTableSeats(seatsNew, seatsBase){
+function updateTableSeats(seatsNew, seatsBase, seatsPercentage){
   parties.forEach(function(party){
-    updateBlock(seatsNew[party] || 0, seatsBase[party] || 0, $('#seats-' + party), $('#seats-var-' + party))
+    updateBlock(seatsNew[party] || 0, seatsBase[party] || 0, $('#seats-' + party), $('#seats-var-' + party));
+    $("#seats-percent-"+party).html(seatsPercentage[party] + '%');
   });
 }
 
-function updateTableProportion(proportionNew, proportionBase){
-  parties.forEach(function(party){
-  updateBlock(proportionNew[party] || 0, proportionBase[party] || 0, $('#proportion-' + party), $('#proportion-var-' + party), true);
-  });
-}
+// function updateTableProportion(proportionNew, proportionBase){
+//   parties.forEach(function(party){
+//     updateBlock(proportionNew[party] || 0, proportionBase[party] || 0, $('#proportion-' + party), $('#proportion-var-' + party), true);
+//   });
+// }
 
 
 var ElectionsDefaultModel = {
@@ -104,26 +105,19 @@ function setConfig(){
   } else if(groupBy === 'ccaa'){
     doSetConfig(votesByCCAA, threshold);
   } else if (groupBy === 'province'){
-    var votes = votesByProvince;
-    var seatsNew = seatsFromVotes(votes, threshold);
-    var proportionNew = calculateProportion(seatsCurrent);
-    var proportionBase = calculateProportion(seatsCurrent);
-    //update viz
-    createRects(seatsNew);
-    updateTableSeats(seatsNew[0], seatsCurrent);
-    updateTableProportion(proportionNew, proportionBase);
+    doSetConfig(votesByProvince, threshold);
   }
 
 }
 
 function doSetConfig(votes, threshold) {
   var seatsNew = seatsFromVotes(votes, threshold);
-  var proportionNew = calculateProportion(seatsNew[0]);
-  var proportionBase = calculateProportion(seatsCurrent);
+  // var proportionNew = calculateProportion(seatsNew[0]);
+  // var proportionBase = calculateProportion(seatsCurrent);
   //update viz
   createRects(seatsNew);
-  updateTableSeats(seatsNew[0], seatsCurrent);
-  updateTableProportion(proportionNew, proportionBase);
+  updateTableSeats(seatsNew[0], seatsCurrent, getSeatsPercentage(seatsNew[0]));
+  // updateTableProportion(proportionNew, proportionBase);
 }
 
 function getSeatsPercentage(seats){
