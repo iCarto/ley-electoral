@@ -12,16 +12,21 @@
   <div class="container-fluid">
 
     <div class="row text-center">
-      <h1>¿Cómo quedaría el congreso si...?</h1>
-      <p>
-        Esta visualización permite jugar con algunas de las variables que definen el sistema electoral español.
+
+      <h1>¿Cómo sería el Congreso si cambia la ley electoral?</h1>
+      <p class="col-md-offset-3 col-md-6 col-xs-12">
+        El sistema electoral español reparte un total 350 escaños divididos por circunscripción en función de la población. Los votos se agregan por circunscripción y se reparten mediante el <a href="https://es.wikipedia.org/wiki/Sistema_d'Hondt">método D'Hondt</a>, excluyendo previamente a los partidos que no superen el umbral mínimo de votos.
+      </p>
+      <p class=" col-md-offset-3 col-md-6 col-xs-12">
+        La actual legislación marca como circunscripción la provincia y como umbral de votos el 3%. Descubre cómo sería el Congreso si variasen esos parámetros.
       </p>
     </div>
 
+    <br>
 
     <div class="row variables text-center">
 
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-offset-2 col-md-4">
         <h4>CIRCUNSCRIPCIÓN</h4>
         <div id="region-btns" class="btn-group" role="group" aria-label="...">
           <button id="region-province" type="button" class="active btn btn-default" onclick="updateRegionToProvince()">PROVINCIAL</button>
@@ -30,7 +35,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-4">
         <h4>UMBRAL DE VOTOS</h4>
         <div id="threshold-btns" class="btn-group" role="group" aria-label="...">
           <button id="threshold-0" type="button" class="btn btn-default" onclick="updateThresholdTo0()">0%</button>
@@ -45,8 +50,8 @@
     <hr>
 
     <div class="row">
-      <div id="seats-new" class="col-xs-12 col-md-12"></div>
-      <div id="seats-old" class="col-xs-12 col-md-12"></div>
+      <div id="seats-new" class="col-xs-11 col-md-11"></div>
+      <div id="seats-old" class="col-xs-11 col-md-11"></div>
     </div>
 
     <br>
@@ -55,35 +60,31 @@
 
     <div class="row">
 
-    <div class="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-4">
-      <div class="row">
-        <table class="col-xs-8">
-          <thead>
-            <tr class="row">
-              <th class="col-xs-1 pull-left">PARTIDO</th>
-              <th class="col-xs-2" colspan="2">VOTOS</th>
-              <th class="col-xs-2" colspan="2">ESCAÑOS</th>
-              <th class="col-xs-1">VARIACIÓN</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+      <table class="col-xs-12 col-md-offset-3 col-md-6">
+        <thead>
+          <tr class="row">
+            <th class="col-xs-1 col-md-1 pull-left">PARTIDO</th>
+            <th class="col-xs-2 col-md-2" colspan="2">VOTOS</th>
+            <th class="col-xs-2 col-md-2" colspan="2">ESCAÑOS</th>
+            <th class="col-xs-1 col-md-1">VARIACIÓN</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
 
-      </div>
     </div>
-  </div>
 
-  <script src="js/underscore-1.8.3-min.js"></script>
-  <script src="js/d3-3.5.10.min.js"></script>
-  <script src="js/jquery-1.11.3.min.js"></script>
-  <script src="js/jquery.number-2.1.6-min.js"></script>
-  <script src="js/dhondt.js"></script>
-  <script src="data/seats-current.js?1512211304"></script>
-  <script src="js/seats-new.js?1512211304"></script>
-  <script src="js/seats-old.js?1512211304"></script>
-  <script src="js/seatsFromVotes.js?1512211304"></script>
-  <script src="js/functions.js?1512211304"></script>
-  <script src="js/main.js?1512211304"></script>
+    <script src="js/underscore-1.8.3-min.js"></script>
+    <script src="js/d3-3.5.10.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.number-2.1.6-min.js"></script>
+    <script src="js/dhondt.js"></script>
+    <script src="data/seats-current.js?1512211304"></script>
+    <script src="js/seats-new.js?1512211304"></script>
+    <script src="js/seats-old.js?1512211304"></script>
+    <script src="js/seatsFromVotes.js?1512211304"></script>
+    <script src="js/functions.js?1512211304"></script>
+    <script src="js/main.js?1512211304"></script>
 
-</body>
-</html>
+  </body>
+  </html>
