@@ -13,11 +13,11 @@
 
     <div class="row text-center">
 
-      <h1>¿Cómo sería el Congreso si cambia la ley electoral?</h1>
-      <p class="col-md-offset-3 col-md-6 col-xs-12">
+      <h1 class="col-xs-12">¿Cómo sería el Congreso si cambia la ley electoral?</h1>
+      <p class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
         El sistema electoral español reparte un total 350 escaños divididos por circunscripción en función de la población. Los votos se agregan por circunscripción y se reparten mediante el <a href="https://es.wikipedia.org/wiki/Sistema_d'Hondt">método D'Hondt</a>, excluyendo previamente a los partidos que no superen el umbral mínimo de votos.
       </p>
-      <p class=" col-md-offset-3 col-md-6 col-xs-12">
+      <p class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
         La actual legislación marca como circunscripción la provincia y como umbral de votos el 3%. Descubre cómo sería el Congreso si variasen esos parámetros.
       </p>
     </div>
@@ -26,7 +26,7 @@
 
     <div class="row variables text-center">
 
-      <div class="col-xs-12 col-md-offset-2 col-md-4">
+      <div class="col-lg-offset-3 col-lg-3 col-md-offset-2 col-md-4 col-sm-offset-1 col-sm-5 col-xs-12 ">
         <h4>CIRCUNSCRIPCIÓN</h4>
         <div id="region-btns" class="btn-group" role="group" aria-label="...">
           <button id="region-province" type="button" class="active btn btn-default" onclick="updateRegionToProvince()">PROVINCIAL</button>
@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-4">
+      <div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
         <h4>UMBRAL DE VOTOS</h4>
         <div id="threshold-btns" class="btn-group" role="group" aria-label="...">
           <button id="threshold-0" type="button" class="btn btn-default" onclick="updateThresholdTo0()">0%</button>
@@ -50,8 +50,9 @@
     <hr>
 
     <div class="row">
-      <div id="seats-new" class="col-xs-11 col-md-11"></div>
-      <div id="seats-old" class="col-xs-11 col-md-11"></div>
+      <!-- TODO: review this in smaller screens -->
+      <div id="seats-new" class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-xs-offset-1 col-xs-10"></div>
+      <div id="seats-old" class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-xs-offset-1 col-xs-10"></div>
     </div>
 
     <br>
@@ -60,13 +61,13 @@
 
     <div class="row">
 
-      <table class="col-xs-12 col-md-offset-3 col-md-6">
+      <table class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 ">
         <thead>
           <tr class="row">
-            <th class="col-xs-1 col-md-1 pull-left">PARTIDO</th>
-            <th class="col-xs-2 col-md-2" colspan="2">VOTOS</th>
-            <th class="col-xs-2 col-md-2" colspan="2">ESCAÑOS</th>
-            <th class="col-xs-1 col-md-1">VARIACIÓN</th>
+            <th class="col-xs-1 pull-left">PARTIDO</th>
+            <th class="col-xs-2" colspan="2">VOTOS</th>
+            <th class="col-xs-2" colspan="2">ESCAÑOS</th>
+            <th class="col-xs-1">VARIACIÓN</th>
           </tr>
         </thead>
         <tbody></tbody>
