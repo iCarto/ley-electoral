@@ -27,14 +27,13 @@ function updateViz(){
     // update viz when all data is received
     // as we need them to do some calculations
 
-    chartNewScenario = seats()
+    chartNewScenario = seatsChart()
         .width(document.getElementById('seats-new').offsetWidth)
         .height(40);
-    d3.csv("data/data.csv", function(data) {
-      d3.select('#seats-new')
-        .datum(data)
+    var seats = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold);
+    d3.select('#seats-new')
+        .datum(seats)
         .call(chartNewScenario);
-    });
 
     svgOld(parties, colors);
     populateTable();

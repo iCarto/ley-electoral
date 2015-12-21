@@ -80,12 +80,6 @@ function updateTableSeats(seatsNew, seatsBase, seatsPercentage){
   });
 }
 
-var ElectionsDefaultModel = {
-  'groupBy': 'province',
-  'seats': 350,
-  'threshold': 3
-};
-
 function setConfig(){
 
   var groupBy = $('#region-btns .active').attr('id').split('-')[1] || ElectionsDefaultModel.groupBy;

@@ -1,3 +1,9 @@
+var ElectionsDefaultModel = {
+  'groupBy': 'province',
+  'seats': 350,
+  'threshold': 3
+};
+
 var seatsCurrent = {
   "pp":      186,
   "psoe":    110,

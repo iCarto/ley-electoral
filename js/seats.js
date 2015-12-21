@@ -1,5 +1,5 @@
 // reusable chart component based on http://bost.ocks.org/mike/chart/
-function seats(){
+function seatsChart(){
 
   //// chart dimensions
   //// margins conventions based on http://bl.ocks.org/mbostock/3019563
@@ -36,11 +36,11 @@ function seats(){
 
       xScale.domain([0, d3.max(data, function(d) { return d.total; })]);
 
-      // select or create SVG element
-      // var svg = d3.select(this).append("svg");
-      var svg = d3.select(this).selectAll("svg")
-                  .data(data)
-                .enter().append("svg");
+      // select svg if exists
+      var svg = d3.select(this).selectAll("svg").data(data);
+
+      // create, if svg still not exists
+      var gEnter = svg.enter().append("svg");
 
       // update outer dimensions
       // svg.attr("width", chart.width() + margin.left + margin.right)
@@ -48,15 +48,15 @@ function seats(){
       svg.attr("width", chart.width())
           .attr("height", chart.height());
 
-      var seats = svg.selectAll(".seatsBar")
-                      .data(data)
-                    .enter().append("g")
+      var seats = svg.selectAll(".seatsBar").data(data);
+      var gSeats = seats.enter().append("g")
                       .attr("class", "seatsBar");
 
-      seats.selectAll("rect")
-          .data(function(d) { return d.seats; })
-        .enter().append("rect")
-          .attr("width", function(d) { return xScale(d.x1) - xScale(d.x0); })
+      var rects = seats.selectAll("rect")
+          .data(function(d) { return d.seats; });
+
+      rects.enter().append("rect");
+      rects.attr("width", function(d) { return xScale(d.x1) - xScale(d.x0); })
           .attr("x", function(d) { return xScale(d.x0); })
           .attr("height", chart.height())
           .style("fill", function(d) { return colorScale(d.name); });
