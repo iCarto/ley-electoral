@@ -116,10 +116,10 @@ function populateTable(){
   '<span class="<%= code %>">...</span><span><%= name %></span>' +
   '</td>' +
   '<td id="votes-<%= code %>" class="col-xs-1 hidden-xs text-right"><%= votes %></td>' +
-  '<td id="votes-percent-<%= code %>" class="col-xs-1 hidden-xs"><%= votes_percent %></td>' +
-  '<td id="seats-<%= code %>" class="col-xs-1 seats"><%= seats %></td>' +
-  '<td id="seats-percent-<%= code %>" class="col-xs-1 hidden-xs"><%= seats_percent %></td>' +
-  '<td class="col-xs-1"><span id="seats-var-<%= code %>" class="equal">-</span></td>' +
+  '<td id="votes-percent-<%= code %>" class="col-xs-1 hidden-xs text-right"><%= votes_percent %></td>' +
+  '<td id="seats-<%= code %>" class="col-xs-1 seats text-right"><%= seats %></td>' +
+  '<td id="seats-percent-<%= code %>" class="col-xs-1 text-right hidden-xs"><%= seats_percent %></td>' +
+  '<td class="col-xs-1 text-center"><span id="seats-var-<%= code %>" class="equal">-</span></td>' +
   '</tr>  ');
   var votesPercentage = getVotesPercentage();
   var seats = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold)[0];
@@ -129,7 +129,7 @@ function populateTable(){
       code:          party,
       name:          names[party],
       votes:         $.number(votesByCountry[0][party], 0, ',', '.'),
-      votes_percent: votesPercentage[party] + '%',
+      votes_percent: $.number(votesPercentage[party], 2, ',', '.') + '%',
       seats:         seats[party],
       seats_percent: seatsPercentage[party] + '%'
     }));

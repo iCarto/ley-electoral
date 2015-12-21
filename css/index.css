@@ -1,66 +1,23 @@
-
-
-/*.panel > h1{
-color: white;
-}*/
-
-.pp,
-.psoe,
-.ciu,
-.iu,
-.amaiur,
-.upyd,
-.pnv,
-.esquerra,
-.bng,
-.cc,
-.compromis,
-.fac,
-.gbai,
-.equo,
-.pacma,
-.eb,
-.pa,
-.pxc,
-.others
-{
-  margin-right: 1em;
-}
+/*party colors*/
 
 .pp{
-  color: #349BDD;
-  background-color: #349BDD;
-  margin-right: 1em;
+  color: #0194D9;
+  background-color: #0194D9;
 }
 
 .psoe{
-  color: #DB0024;
-  background-color: #DB0024;
+  color: #F82433;
+  background-color: #F82433;
 }
 
-.ciu{
-  color: #001D59;
-  background-color: #001D59;
+.podemos{
+  color: #9C489E;
+  background-color: #9C489E;
 }
 
-.iu{
-  color: #8F2222;
-  background-color: #8F2222;
-}
-
-.amaiur{
-  color: #0E8D9E;
-  background-color: #0E8D9E;
-}
-
-.upyd{
-  color: #E20183;
-  background-color: #E20183;
-}
-
-.pnv{
-  color: #009526;
-  background-color: #009526;
+.ciudadanos{
+  color: #EF7A36;
+  background-color: #EF7A36;
 }
 
 .esquerra{
@@ -68,14 +25,66 @@ color: white;
   background-color: #F79F21;
 }
 
-.bng{
-  color: #9CC1E6;
-  background-color: #9CC1E6;
+.dyl{
+  color: #19204B;
+  background-color: #19204B;
+}
+
+.pnv{
+  color: #009526;
+  background-color: #009526;
+}
+
+
+.iu{
+  color: #8F2222;
+  background-color: #8F2222;
+}
+
+.bildu{
+  color: #C3CF34;
+  background-color: #C3CF34;
 }
 
 .cc{
   color: #FFFF96;
   background-color: #FFFF96;
+}
+
+.upyd{
+  color: #BBBF11;
+  background-color: #BBBF11;
+}
+
+.bng{
+  color: #FF0090;
+  background-color: #FF0090;
+}
+
+.udc{
+  color: #9CC1E6;
+  background-color: #9CC1E6;
+}
+
+.vox {
+  color: #6699FF;
+  background-color: #6699FF;
+}
+
+.others{
+  color: #f0f0f0;
+  background-color: #f0f0f0;
+}
+
+/*2011-only parties*/
+.ciu{
+  color: #001D59;
+  background-color: #001D59;
+}
+
+.amaiur{
+  color: #0E8D9E;
+  background-color: #0E8D9E;
 }
 
 .compromis{
@@ -93,31 +102,6 @@ color: white;
   background-color: #8D838B;
 }
 
-/*.equo{
-  color: green;
-  background-color: green;
-}
-
-.pacma{
-  color: orange;
-  background-color: orange;
-}
-
-.eb{
-  color: pink;
-  background-color: pink;
-}
-
-.pa{
-  color: violet;
-  background-color: violet;
-}
-
-.pxc{
-  color: #c51b8a;
-  background-color: #c51b8a;
-}*/
-
 .equo,
 .pacma,
 .eb,
@@ -128,68 +112,7 @@ color: white;
   background-color: #f0f0f0;
 }
 
-.ciudadanos{
-  color: #F86D2B;
-  background-color: #F86D2B;
-}
-
-.podemos{
-  color: #5F2D60;
-  background-color: #5F2D60;
-}
-
-.percent,
-.seats{
-  color: #555;
-  font-weight: bold;
-}
-
-.up{
-  /*color: #91D2CB;*/
-  color: white;
-  background-color: green;
-  /*font-weight: bold;*/
-  /*border-left: 1px solid #aaa;*/
-}
-
-.down{
-  /*color: #FC9272;*/
-  /*color: #de2d26;*/
-  color: white;
-  background-color: red;
-  /*font-weight: bold;*/
-  /*border-left: 1px solid #aaa;*/
-}
-
-.up,
-.down,
-.equal{
-  font-weight: bold;
-}
-
-.percent{
-  font-weight: bold;
-  border-left: 1px solid #aaa;
-}
-
-td{
-  color: #AAA;
-}
-
-td span{
-  /*same as body*/
-  color: #555;
-}
-
-tr th,
-tr td{
-  text-align: center;
-}
-
-tr td:first-child {
-  text-align: left;
-}
-
+/* table line separators*/
 thead tr{
   border-bottom: 2px solid #555;
 }
@@ -198,6 +121,64 @@ tbody tr{
   border-bottom: 1px solid #AAA;
 }
 
-.map{
-  background-color: grey;
+/* give space to party name after party legend */
+.pp,
+.psoe,
+.podemos,
+.ciudadanos,
+.esquerra,
+.dyl,
+.pnv,
+.iu,
+.bildu,
+.cc,
+.pacma,
+.upyd,
+.bng,
+.udc,
+.vox,
+.others {
+  margin-right: 1em;
+}
+
+/* 2011-only parties */
+.ciu,
+.amaiur,
+.compromis,
+.fac,
+.gbai,
+.equo,
+.eb,
+.pa,
+.pxc {
+  margin-right: 1em;
+}
+
+body,
+.seats,
+td span{
+  color: #555;
+}
+
+td{
+  color: #AAA;
+}
+
+.up{
+  color: white;
+  background-color: #006D2C;
+  /*background-color: green;*/
+}
+
+.down{
+  color: white;
+  background-color: #A50F15;
+  /*background-color: red;*/
+}
+
+.up,
+.down,
+.equal,
+.seats{
+  font-weight: bold;
 }
