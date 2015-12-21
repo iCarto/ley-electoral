@@ -80,13 +80,6 @@ function updateTableSeats(seatsNew, seatsBase, seatsPercentage){
   });
 }
 
-// function updateTableProportion(proportionNew, proportionBase){
-//   parties.forEach(function(party){
-//     updateBlock(proportionNew[party] || 0, proportionBase[party] || 0, $('#proportion-' + party), $('#proportion-var-' + party), true);
-//   });
-// }
-
-
 var ElectionsDefaultModel = {
   'groupBy': 'province',
   'seats': 350,
@@ -112,12 +105,8 @@ function setConfig(){
 
 function doSetConfig(votes, threshold) {
   var seatsNew = seatsFromVotes(votes, threshold);
-  // var proportionNew = calculateProportion(seatsNew[0]);
-  // var proportionBase = calculateProportion(seatsCurrent);
-  //update viz
   createRects(seatsNew);
   updateTableSeats(seatsNew[0], seatsCurrent, getSeatsPercentage(seatsNew[0]));
-  // updateTableProportion(proportionNew, proportionBase);
 }
 
 function populateTable(){
@@ -156,7 +145,7 @@ function getSeatsPercentage(seats){
 }
 
 function getVotesPercentage(){
-  // // shall these take into account all votes or only valid votes?
+  // shall these take into account all votes or only valid votes?
   var votesPercentage = {};
   parties.forEach(function(party){
     votesPercentage[party] = (votesByCountry[0][party]*100 / votesByCountry[0]["total votes"]).toFixed(2)
