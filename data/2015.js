@@ -11,7 +11,7 @@ var seatsCurrent = {
   "cc":         1,
   "pacma":      0,
   "upyd":       0,
-  "nos":        0,
+  "bng":        0,
   "udc":        0,
   "vox":        0,
   "others":     0
