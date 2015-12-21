@@ -56,10 +56,16 @@ function seatsChart(){
           .data(function(d) { return d.seats; });
 
       rects.enter().append("rect");
-      rects.attr("width", function(d) { return xScale(d.x1) - xScale(d.x0); })
-          .attr("x", function(d) { return xScale(d.x0); })
+      rects.attr("width", function(d) {
+        return xScale(d.x1) - xScale(d.x0);
+      })
+          .attr("x", function(d) {
+            return xScale(d.x0);
+          })
           .attr("height", chart.height())
-          .style("fill", function(d) { return colorScale(d.name); });
+          .style("fill", function(d) {
+            return colorScale(d.name);
+          });
 
     });
   }
