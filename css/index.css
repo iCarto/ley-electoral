@@ -92,7 +92,7 @@ color: white;
   background-color: #8D838B;
 }
 
-.equo{
+/*.equo{
   color: green;
   background-color: green;
 }
@@ -115,6 +115,16 @@ color: white;
 .pxc{
   color: #c51b8a;
   background-color: #c51b8a;
+}*/
+
+.equo,
+.pacma,
+.eb,
+.pa,
+.pxc,
+.others{
+  color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .ciudadanos{

@@ -13,8 +13,8 @@ var x = d3.scale.linear()
 
 // TODO: asignar colores os que terian escanho en outras situacions
 var color = d3.scale.ordinal()
-    .domain(['pp', 'psoe', 'ciu', 'iu', 'amaiur', 'upyd', 'pnv', 'esquerra', 'bng', 'cc', 'compromis', 'fac', 'gbai'])
-    .range(["#349BDD", "#DB0024", "#001D59", "#8F2222", "#0E8D9E", "#E20183", "#009526", "#F79F21", "#9CC1E6", "#FFFF96", "#626231", "#003784", "#8D838B"]);
+    .domain(parties)
+    .range(colors);
     //'cs' #F86D2B
     // 'podemos': #5F2D60
 
