@@ -92,7 +92,6 @@ function setConfig(){
   var seats = ElectionsDefaultModel.seats;
   var threshold = $('#threshold-btns .active').attr('id').split('-')[1] || ElectionsDefaultModel.threshold;
 
-  // TODO: use CDB to retrieve votes grouped by proper region
   if(groupBy === 'country'){
     doSetConfig(votesByCountry, threshold);
   } else if(groupBy === 'ccaa'){
@@ -105,7 +104,10 @@ function setConfig(){
 
 function doSetConfig(votes, threshold) {
   var seatsNew = seatsFromVotes(votes, threshold);
-  createRects(seatsNew);
+  d3.select("#seats-new")
+    .datum(seatsNew)
+    .call(chartNewScenario);
+  // createRects(seatsNew);
   updateTableSeats(seatsNew[0], seatsCurrent, getSeatsPercentage(seatsNew[0]));
 }
 

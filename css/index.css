@@ -166,6 +166,16 @@ td{
   color: #AAA;
 }
 
+.hrfooter{
+  margin-top: 5em;
+  border-color: #EEE;
+}
+
+.footer,
+.footer a{
+  color: #CCC;
+}
+
 .up{
   color: white;
   background-color: #006D2C;
