@@ -145,10 +145,10 @@ function getSeatsPercentage(seats){
 }
 
 function getVotesPercentage(){
-  // shall these take into account all votes or only valid votes?
+  // as a fraction of valid votes
   var votesPercentage = {};
   parties.forEach(function(party){
-    votesPercentage[party] = (votesByCountry[0][party]*100 / votesByCountry[0]["total votes"]).toFixed(2)
+    votesPercentage[party] = (votesByCountry[0][party]*100 / (votesByCountry[0]["total votes"] - votesByCountry[0]["invalid votes"])).toFixed(2)
   });
   return votesPercentage;
 }
