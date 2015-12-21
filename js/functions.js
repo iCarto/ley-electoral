@@ -115,10 +115,10 @@ function populateTable(){
   '<td class="col-xs-1 pull-left">' +
   '<span class="<%= code %>">...</span><span><%= name %></span>' +
   '</td>' +
-  '<td id="votes-<%= code %>" class="col-xs-1 text-right"><%= votes %></td>' +
-  '<td id="votes-percent-<%= code %>" class="col-xs-1"><%= votes_percent %></td>' +
+  '<td id="votes-<%= code %>" class="col-xs-1 hidden-xs text-right"><%= votes %></td>' +
+  '<td id="votes-percent-<%= code %>" class="col-xs-1 hidden-xs"><%= votes_percent %></td>' +
   '<td id="seats-<%= code %>" class="col-xs-1 seats"><%= seats %></td>' +
-  '<td id="seats-percent-<%= code %>" class="col-xs-1"><%= seats_percent %></td>' +
+  '<td id="seats-percent-<%= code %>" class="col-xs-1 hidden-xs"><%= seats_percent %></td>' +
   '<td class="col-xs-1"><span id="seats-var-<%= code %>" class="equal">-</span></td>' +
   '</tr>  ');
   var votesPercentage = getVotesPercentage();
