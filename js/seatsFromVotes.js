@@ -32,7 +32,9 @@ function transformData(region, threshold){
       party: p,
       // 0 votes for parties that does not pass the threshold
       // as they are excluded from the seats assignation by law
-      votes: region[p] > minVotes ? region[p] : 0
+      // Also we don't assign seats to others as we know that one by
+      // one they will not get a seat
+      votes: (region[p] > minVotes) && (p !== 'others') ? region[p] : 0
     });
   });
   return data;
