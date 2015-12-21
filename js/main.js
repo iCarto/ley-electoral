@@ -20,6 +20,10 @@ $( document ).ready(function() {
 
 });
 
+var chartNewScenario = seatsChart()
+    .width(document.getElementById('seats-new').offsetWidth)
+    .height(40);
+
 var dataCount = 0;
 function updateViz(){
   dataCount++;
@@ -27,15 +31,13 @@ function updateViz(){
     // update viz when all data is received
     // as we need them to do some calculations
 
-    chartNewScenario = seatsChart()
-        .width(document.getElementById('seats-new').offsetWidth)
-        .height(40);
     var seats = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold);
     d3.select('#seats-new')
         .datum(seats)
         .call(chartNewScenario);
 
     svgOld(parties, colors);
+
     populateTable();
 
     $('#region-btns button').prop('disabled', false);
