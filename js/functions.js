@@ -131,7 +131,7 @@ function populateTable(){
       votes:         $.number(votesByCountry[0][party], 0, ',', '.'),
       votes_percent: $.number(votesPercentage[party], 2, ',', '.') + '%',
       seats:         seats[party],
-      seats_percent: seatsPercentage[party] + '%'
+      seats_percent: $.number(seatsPercentage[party], 2, ',', '.') + '%'
     }));
   });
 }
