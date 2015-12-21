@@ -15,7 +15,7 @@ $( document ).ready(function() {
 
         svgNew();
         svgOld(parties, colors);
-        setConfig();
+        populateTable();
 
         $('#region-btns button').prop('disabled', false);
         $('#threshold-btns button').prop('disabled', false);

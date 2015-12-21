@@ -120,6 +120,33 @@ function doSetConfig(votes, threshold) {
   // updateTableProportion(proportionNew, proportionBase);
 }
 
+function populateTable(){
+  var votesFormatter = d3.format(".");
+  var template = _.template('<tr class="row">' +
+  '<td class="col-xs-1 pull-left">' +
+  '<span class="<%= code %>">...</span><span><%= name %></span>' +
+  '</td>' +
+  '<td id="votes-<%= code %>" class="col-xs-1 text-right"><%= votes %></td>' +
+  '<td id="votes-percent-<%= code %>" class="col-xs-1"><%= votes_percent %></td>' +
+  '<td id="seats-<%= code %>" class="col-xs-1 seats"><%= seats %></td>' +
+  '<td id="seats-percent-<%= code %>" class="col-xs-1"><%= seats_percent %></td>' +
+  '<td class="col-xs-1"><span id="seats-var-<%= code %>" class="equal">-</span></td>' +
+  '</tr>  ');
+  var votesPercentage = getVotesPercentage();
+  var seats = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold)[0];
+  var seatsPercentage = getSeatsPercentage(seats);
+  parties.forEach(function(party){
+    $('tbody').append(template({
+      code:          party,
+      name:          names[party],
+      votes:         $.number(votesByCountry[0][party], 0, ',', '.'),
+      votes_percent: votesPercentage[party] + '%',
+      seats:         seats[party],
+      seats_percent: seatsPercentage[party] + '%'
+    }));
+  });
+}
+
 function getSeatsPercentage(seats){
   var seatsPercentage = {};
   parties.forEach(function(party){
