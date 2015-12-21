@@ -35,7 +35,6 @@
   background-color: #009526;
 }
 
-
 .iu{
   color: #8F2222;
   background-color: #8F2222;
@@ -51,24 +50,29 @@
   background-color: #FFFF96;
 }
 
-.upyd{
+.pacma{
   color: #BBBF11;
   background-color: #BBBF11;
 }
 
-.bng{
+.upyd{
   color: #FF0090;
   background-color: #FF0090;
 }
 
-.udc{
+.bng{
   color: #9CC1E6;
   background-color: #9CC1E6;
 }
 
-.vox {
+.udc{
   color: #6699FF;
   background-color: #6699FF;
+}
+
+.vox {
+  color: #00BB00;
+  background-color: #00BB00;
 }
 
 .others{
@@ -103,11 +107,9 @@
 }
 
 .equo,
-.pacma,
 .eb,
 .pa,
-.pxc,
-.others{
+.pxc{
   color: #f0f0f0;
   background-color: #f0f0f0;
 }
