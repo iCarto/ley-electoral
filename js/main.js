@@ -26,6 +26,7 @@ function updateViz(){
   if (dataCount === 3){
     // update viz when all data is received
     // as we need them to do some calculations
+
     chartNewScenario = seats()
         .width(document.getElementById('seats-new').offsetWidth)
         .height(40);

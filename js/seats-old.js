@@ -1,10 +1,14 @@
 
 function svgOld(parties, colors){
 
-// http://bl.ocks.org/mbostock/3019563
-var margin = {top: 0, right: 50, bottom: 30, left: 50},
-    width = document.getElementById('seats-old').offsetWidth - margin.left - margin.right,
-    height = 10 - margin.top - margin.bottom,
+// // http://bl.ocks.org/mbostock/3019563
+// var margin = {top: 0, right: 50, bottom: 30, left: 50},
+//     width = document.getElementById('seats-old').offsetWidth - margin.left - margin.right,
+//     height = 10 - margin.top - margin.bottom,
+//     barHeight = 40;
+
+var width = document.getElementById('seats-old').offsetWidth,
+    height = 10,
     barHeight = 40;
 
 // scales
@@ -32,10 +36,12 @@ var color = d3.scale.ordinal()
 //     .tickFormat(d3.format(".2s"));
 
 var svg = d3.select("#seats-old").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .attr("width", width)
+  .attr("height", height)
+    // .attr("width", width + margin.left + margin.right)
+    // .attr("height", height + margin.top + margin.bottom)
+  .append("g");
+    // .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.csv("data/data.csv", function(error, data) {
   if (error) throw error;
