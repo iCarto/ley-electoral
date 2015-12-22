@@ -113,6 +113,9 @@ function setConfig(){
 
 function doSetConfig(votes, threshold) {
   var seatsNew = seatsFromVotes(votes, threshold);
+  chartNewScenario
+    .width(document.getElementById('seats-new').offsetWidth)
+    .height(30);
   d3.select("#seats-new")
     .datum(seatsNew)
     .call(chartNewScenario);
