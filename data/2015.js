@@ -45,7 +45,29 @@ var names = {
   "others":     "Otros"
 };
 
+// If there are several parties with stablished pacts, or one party with different
+// brands we can calculate its seats individually and present it aggregated
+
+var pacts = {
+    'podemos': ['podemos', 'en_marea', 'compromis_podemos', 'en_comu_podem'],
+    'pp': ['pp'],
+    'psoe': ['psoe'],
+    'ciudadanos':['ciudadanos'],
+    'esquerra': ['esquerra'],
+    'dyl': ['dyl'],
+    'pnv':['pnv'],
+    'iu': ['iu'],
+    'bildu': ['bildu'],
+    'cc': ['cc'],
+    'pacma': ['pacma'],
+    'upyd':['upyd'],
+    'bng': ['bng'],
+    'udc': ['udc'],
+    'vox': ['vox'],
+    'others': ['others']
+}
+
 // 2015
-var sqlCountry =  encodeURIComponent('SELECT \'España\' as region, sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes" , sum(blank_votes) as "blank votes", sum(pp) as pp, sum(psoe) as psoe, sum(compromis_podemos) + sum(en_comu_podem) + sum(en_marea) + sum(podemos) as podemos, sum(ciudadanos) as ciudadanos, sum(esquerra) as esquerra, sum(dyl) as dyl, sum(pnv) as pnv, sum(iu_up) as iu, sum(bildu) as bildu, sum(cc) as cc, sum(pacma) as pacma, sum(upyd) as upyd, sum(nos) as bng, sum(udc) as udc, sum(vox) as vox, sum(gbai) + sum(eb) + sum(ciudadanos_centro_democratico) + sum(extremadura_unida) + sum(izquierda_verdes) + sum(others) + sum(verdes_ecopacifistas) + sum(mes) + sum(pcpe) + sum(proposta_per_illes_balears) + sum(recortes_cero) as others FROM elections_2015');
-var sqlCCAA =  encodeURIComponent('SELECT ccaa as region, sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes" , sum(blank_votes) as "blank votes", sum(pp) as pp, sum(psoe) as psoe, sum(compromis_podemos) + sum(en_comu_podem) + sum(en_marea) + sum(podemos) as podemos, sum(ciudadanos) as ciudadanos, sum(esquerra) as esquerra, sum(dyl) as dyl, sum(pnv) as pnv, sum(iu_up) as iu, sum(bildu) as bildu, sum(cc) as cc, sum(pacma) as pacma, sum(upyd) as upyd, sum(nos) as bng, sum(udc) as udc, sum(vox) as vox, sum(gbai) + sum(eb) + sum(ciudadanos_centro_democratico) + sum(extremadura_unida) + sum(izquierda_verdes) + sum(others) + sum(verdes_ecopacifistas) + sum(mes) + sum(pcpe) + sum(proposta_per_illes_balears) + sum(recortes_cero) as others FROM elections_2015 GROUP BY ccaa');
-var sqlProvince =  encodeURIComponent('SELECT province as region, sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes" , sum(blank_votes) as "blank votes", sum(pp) as pp, sum(psoe) as psoe, sum(compromis_podemos) + sum(en_comu_podem) + sum(en_marea) + sum(podemos) as podemos, sum(ciudadanos) as ciudadanos, sum(esquerra) as esquerra, sum(dyl) as dyl, sum(pnv) as pnv, sum(iu_up) as iu, sum(bildu) as bildu, sum(cc) as cc, sum(pacma) as pacma, sum(upyd) as upyd, sum(nos) as bng, sum(udc) as udc, sum(vox) as vox, sum(gbai) + sum(eb) + sum(ciudadanos_centro_democratico) + sum(extremadura_unida) + sum(izquierda_verdes) + sum(others) + sum(verdes_ecopacifistas) + sum(mes) + sum(pcpe) + sum(proposta_per_illes_balears) + sum(recortes_cero) as others FROM elections_2015 GROUP BY province');
+var sqlCountry =  encodeURIComponent('SELECT \'España\' as region, sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes" , sum(blank_votes) as "blank votes", sum(pp) as pp, sum(psoe) as psoe, sum(compromis_podemos) as compromis_podemos, sum(en_comu_podem) as en_comu_podem, sum(en_marea) as en_marea, sum(podemos) as podemos, sum(ciudadanos) as ciudadanos, sum(esquerra) as esquerra, sum(dyl) as dyl, sum(pnv) as pnv, sum(iu_up) as iu, sum(bildu) as bildu, sum(cc) as cc, sum(pacma) as pacma, sum(upyd) as upyd, sum(nos) as bng, sum(udc) as udc, sum(vox) as vox, sum(gbai) + sum(eb) + sum(ciudadanos_centro_democratico) + sum(extremadura_unida) + sum(izquierda_verdes) + sum(others) + sum(verdes_ecopacifistas) + sum(mes) + sum(pcpe) + sum(proposta_per_illes_balears) + sum(recortes_cero) as others FROM elections_2015');
+var sqlCCAA =  encodeURIComponent('SELECT ccaa as region, sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes" , sum(blank_votes) as "blank votes", sum(pp) as pp, sum(psoe) as psoe, sum(compromis_podemos) as compromis_podemos, sum(en_comu_podem) as en_comu_podem, sum(en_marea) as en_marea, sum(podemos) as podemos, sum(ciudadanos) as ciudadanos, sum(esquerra) as esquerra, sum(dyl) as dyl, sum(pnv) as pnv, sum(iu_up) as iu, sum(bildu) as bildu, sum(cc) as cc, sum(pacma) as pacma, sum(upyd) as upyd, sum(nos) as bng, sum(udc) as udc, sum(vox) as vox, sum(gbai) + sum(eb) + sum(ciudadanos_centro_democratico) + sum(extremadura_unida) + sum(izquierda_verdes) + sum(others) + sum(verdes_ecopacifistas) + sum(mes) + sum(pcpe) + sum(proposta_per_illes_balears) + sum(recortes_cero) as others FROM elections_2015 GROUP BY ccaa');
+var sqlProvince =  encodeURIComponent('SELECT province as region, sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes" , sum(blank_votes) as "blank votes", sum(pp) as pp, sum(psoe) as psoe, sum(compromis_podemos) as compromis_podemos, sum(en_comu_podem) as en_comu_podem, sum(en_marea) as en_marea, sum(podemos) as podemos, sum(ciudadanos) as ciudadanos, sum(esquerra) as esquerra, sum(dyl) as dyl, sum(pnv) as pnv, sum(iu_up) as iu, sum(bildu) as bildu, sum(cc) as cc, sum(pacma) as pacma, sum(upyd) as upyd, sum(nos) as bng, sum(udc) as udc, sum(vox) as vox, sum(gbai) + sum(eb) + sum(ciudadanos_centro_democratico) + sum(extremadura_unida) + sum(izquierda_verdes) + sum(others) + sum(verdes_ecopacifistas) + sum(mes) + sum(pcpe) + sum(proposta_per_illes_balears) + sum(recortes_cero) as others FROM elections_2015 GROUP BY province');
