@@ -24,6 +24,15 @@ var chartNewScenario = seatsChart()
     .width(document.getElementById('seats-new').offsetWidth)
     .height(40);
 
+d3.select(window).on('resize', resize);
+
+function resize(){
+  chartNewScenario.width(document.getElementById('seats-new').offsetWidth);
+  var seats = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold);
+  d3.select('#seats-new').datum(seats).call(chartNewScenario);
+  svgOld(parties, colors);
+}
+
 var dataCount = 0;
 function updateViz(){
   dataCount++;
