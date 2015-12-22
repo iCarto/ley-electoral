@@ -4,25 +4,24 @@ function seatsFromVotes(regions, threshold){
     resultProperty: "seats",
     base: 1
   };
-  var newSeats = [{}];
+  var seatsByParty = [{}];
   regions.forEach(function(region){
     var resultsByParty = transformData(region, threshold);
     var result = computeDhondt(resultsByParty, region.seats, options);
     result.forEach(function(p){
-      newSeats[0][p.party] = p.seats + (newSeats[0][p.party] || 0);
+      seatsByParty[0][p.party] = p.seats + (seatsByParty[0][p.party] || 0);
     });
   });
-  
-  var data = [{}];
-  
-  _.keys(pacts).forEach(function(k) {
 
-    pacts[k].forEach(function(p) {
-        data[0][k] = (data[0][k] + newSeats[0][p]) || newSeats[0][p];
+  // we need to agregate the party seats into alliances or pacts
+  var seats = [{}];
+  _.keys(pacts).forEach(function(party) {
+    pacts[party].forEach(function(ally) {
+        seats[0][party] = (seats[0][party] + seatsByParty[0][ally]) || seatsByParty[0][ally];
     });
-  });  
+  });
 
-  return data;
+  return seats;
 }
 
 function transformData(region, threshold){
@@ -47,6 +46,6 @@ function transformData(region, threshold){
       votes: (region[p] > minVotes) && (p !== 'others') ? region[p] : 0
     });
   });
-  
+
   return data;
 }
