@@ -17,20 +17,30 @@ $( document ).ready(function() {
     updateViz();
   });
 
-
 });
 
-var chartNewScenario = seatsChart()
-    .width(document.getElementById('seats-new').offsetWidth)
-    .height(40);
+var chartStaticScenario = seatsChart();
+var chartNewScenario = seatsChart();
 
 d3.select(window).on('resize', resize);
 
 function resize(){
-  chartNewScenario.width(document.getElementById('seats-new').offsetWidth);
-  var seats = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold);
-  d3.select('#seats-new').datum(seats).call(chartNewScenario);
-  svgOld(parties, colors);
+
+  var seats = seatsFromVotes(getVotesFromSelectedRegion(), getSelectedThreshold());
+  chartNewScenario
+    .width(document.getElementById('seats-new').offsetWidth)
+    .height(30);
+  d3.select('#seats-new')
+    .datum(seats)
+    .call(chartNewScenario);
+
+  var seatsCurrent = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold);
+  chartStaticScenario
+    .width(document.getElementById('seats-old').offsetWidth)
+    .height(10);
+  d3.select('#seats-old')
+    .datum(seatsCurrent)
+    .call(chartStaticScenario);
 }
 
 var dataCount = 0;
@@ -41,11 +51,21 @@ function updateViz(){
     // as we need them to do some calculations
 
     var seats = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold);
+    chartNewScenario
+      .width(document.getElementById('seats-new').offsetWidth)
+      .height(30);
     d3.select('#seats-new')
         .datum(seats)
         .call(chartNewScenario);
 
-    svgOld(parties, colors);
+    // for both charts to display, datum needs to be different
+    var seatsCurrent = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold);
+    chartStaticScenario
+      .width(document.getElementById('seats-old').offsetWidth)
+      .height(10);
+    d3.select('#seats-old')
+        .datum(seatsCurrent)
+        .call(chartStaticScenario);
 
     populateTable();
 

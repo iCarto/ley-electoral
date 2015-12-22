@@ -30,6 +30,10 @@ function updateThresholdTo5(){
   setConfig();
 }
 
+function getSelectedThreshold(){
+  return $('#threshold-btns .active').attr('id').split('-')[1] || ElectionsDefaultModel.threshold;
+}
+
 function updateRegionToProvince(){
   $('#region-province').removeClass().addClass('active btn btn-default');
   $('#region-ccaa').removeClass().addClass('btn btn-default');
@@ -49,6 +53,17 @@ function updateRegionToCountry(){
   $('#region-ccaa').removeClass().addClass('btn btn-default');
   $('#region-country').removeClass().addClass('active btn btn-default');
   setConfig();
+}
+
+function getVotesFromSelectedRegion(){
+  var groupBy = $('#region-btns .active').attr('id').split('-')[1] || ElectionsDefaultModel.groupBy;
+  if(groupBy === 'country'){
+    return votesByCountry;
+  } else if(groupBy === 'ccaa'){
+    return votesByCCAA;
+  } else if (groupBy === 'province'){
+    return votesByProvince;
+  }
 }
 
 function updateBlock(newValue, baseValue, el, varEl, decimals){
