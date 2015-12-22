@@ -35,14 +35,14 @@ var names = {
   "dyl":        "DyL",
   "pnv":        "PNV",
   "iu":         "IU-UP",
-  "bildu":      "Bildu",
+  "bildu":      "BILDU",
   "cc":         "CC",
   "pacma":      "PACMA",
   "upyd":       "UPyD",
-  "bng":        "NÓS",
+  "bng":        "NÓS-BNG",
   "udc":        "UDC",
   "vox":        "VOX",
-  "others":     "Otros"
+  "others":     "OTROS"
 };
 
 // If there are several parties with stablished pacts, or one party with different
