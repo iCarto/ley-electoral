@@ -203,3 +203,11 @@ they interfer with graph width calculation
 .d3-chart{
   padding: 0;
 }
+
+/*
+Avoid put party names in a new line when there
+are 'white space chars' in the name
+*/
+.pull-left{
+    white-space: nowrap;
+}
