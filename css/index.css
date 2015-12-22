@@ -166,6 +166,12 @@ td{
   color: #AAA;
 }
 
+.scenario-legend{
+  color: #777;
+  font-weight: bold;
+  /*font-size: smaller;*/
+}
+
 .hrfooter{
   margin-top: 5em;
   border-color: #EEE;

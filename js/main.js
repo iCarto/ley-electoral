@@ -21,6 +21,8 @@ $( document ).ready(function() {
 
 var chartStaticScenario = seatsChart();
 var chartNewScenario = seatsChart();
+var barHeightNew = 40;
+var barHeightCurrent = 10;
 
 d3.select(window).on('resize', resize);
 
@@ -29,7 +31,7 @@ function resize(){
   var seats = seatsFromVotes(getVotesFromSelectedRegion(), getSelectedThreshold());
   chartNewScenario
     .width(document.getElementById('seats-new').offsetWidth)
-    .height(30);
+    .height(barHeightNew);
   d3.select('#seats-new')
     .datum(seats)
     .call(chartNewScenario);
@@ -37,7 +39,7 @@ function resize(){
   var seatsCurrent = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold);
   chartStaticScenario
     .width(document.getElementById('seats-old').offsetWidth)
-    .height(10);
+    .height(barHeightCurrent);
   d3.select('#seats-old')
     .datum(seatsCurrent)
     .call(chartStaticScenario);
@@ -53,7 +55,7 @@ function updateViz(){
     var seats = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold);
     chartNewScenario
       .width(document.getElementById('seats-new').offsetWidth)
-      .height(30);
+      .height(barHeightNew);
     d3.select('#seats-new')
         .datum(seats)
         .call(chartNewScenario);
@@ -62,7 +64,7 @@ function updateViz(){
     var seatsCurrent = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold);
     chartStaticScenario
       .width(document.getElementById('seats-old').offsetWidth)
-      .height(10);
+      .height(barHeightCurrent);
     d3.select('#seats-old')
         .datum(seatsCurrent)
         .call(chartStaticScenario);
