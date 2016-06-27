@@ -1,0 +1,167 @@
+/*party colors*/
+
+.pp{
+  color: #0194D9;
+  background-color: #0194D9;
+}
+
+.psoe{
+  color: #F82433;
+  background-color: #F82433;
+}
+
+.unidos_podemos{
+  color: #9C489E;
+  background-color: #9C489E;
+}
+
+.ciudadanos{
+  color: #EF7A36;
+  background-color: #EF7A36;
+}
+
+.erc{
+  color: #F79F21;
+  background-color: #F79F21;
+}
+
+.cdc{
+  color: #19204B;
+  background-color: #19204B;
+}
+
+.pnv{
+  color: #009526;
+  background-color: #009526;
+}
+
+.bildu{
+  color: #C3CF34;
+  background-color: #C3CF34;
+}
+
+.cc{
+  color: #FFFF96;
+  background-color: #FFFF96;
+}
+
+.pacma{
+  color: #BBBF11;
+  background-color: #BBBF11;
+}
+
+.recortes_cero{
+  color: #6699FF;
+  background-color: #6699FF;
+}
+
+.upyd{
+  color: #FF0090;
+  background-color: #FF0090;
+}
+
+.vox {
+  color: #00BB00;
+  background-color: #00BB00;
+}
+
+.bng{
+  color: #9CC1E6;
+  background-color: #9CC1E6;
+}
+
+.others{
+  color: #f0f0f0;
+  background-color: #f0f0f0;
+}
+
+/* table line separators*/
+thead tr{
+  border-bottom: 2px solid #555;
+}
+
+tbody tr{
+  border-bottom: 1px solid #AAA;
+}
+
+/* give space to party name after party legend */
+.pp,
+.psoe,
+.unidos_podemos,
+.ciudadanos,
+.erc,
+.cdc,
+.pnv,
+.bildu,
+.cc,
+.pacma,
+.recortes_cero,
+.upyd,
+.vox,
+.bng,
+.others {
+  margin-right: 1em;
+}
+
+body,
+.seats,
+td span{
+  color: #555;
+}
+
+td{
+  color: #AAA;
+}
+
+.scenario-legend{
+  color: #777;
+  font-weight: bold;
+  /*font-size: smaller;*/
+}
+
+.hrfooter{
+  margin-top: 5em;
+  border-color: #EEE;
+}
+
+.footer,
+.footer a{
+  color: #CCC;
+  margin-bottom: 1em;
+  text-decoration: underline;
+}
+
+.up{
+  color: white;
+  background-color: #006D2C;
+  /*background-color: green;*/
+}
+
+.down{
+  color: white;
+  background-color: #A50F15;
+  /*background-color: red;*/
+}
+
+.up,
+.down,
+.equal,
+.seats{
+  font-weight: bold;
+}
+
+/*
+remove padding in bootstrap columns for charts
+they interfer with graph width calculation
+*/
+.d3-chart{
+  padding: 0;
+}
+
+/*
+Avoid put party names in a new line when there
+are 'white space chars' in the name
+*/
+.pull-left{
+    white-space: nowrap;
+}
