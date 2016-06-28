@@ -139,11 +139,10 @@ function populateTable(){
   var seats = seatsFromVotes(votesByProvince, ElectionsDefaultModel.threshold)[0];
   var seatsPercentage = getSeatsPercentage(seats);
   parties.forEach(function(party){
-    var partyVotes =  _.reduce(pacts[party], function(memo, ally){ return memo + votesByCountry[0][ally]; }, 0);
     $('tbody').append(template({
       code:          party,
       name:          names[party],
-      votes:         $.number(partyVotes, 0, ',', '.'),
+      votes:         $.number(votesByCountry[0][party], 0, ',', '.'),
       votes_percent: $.number(votesPercentage[party], 2, ',', '.') + '%',
       seats:         seats[party],
       seats_percent: $.number(seatsPercentage[party], 2, ',', '.') + '%'
@@ -163,8 +162,7 @@ function getVotesPercentage(){
   // as a fraction of valid votes
   var votesPercentage = {};
   parties.forEach(function(party){
-    var partyVotes =  _.reduce(pacts[party], function(memo, ally){ return memo + votesByCountry[0][ally]; }, 0);
-    votesPercentage[party] = (partyVotes*100 / (votesByCountry[0]["total votes"] - votesByCountry[0]["invalid votes"])).toFixed(2)
+    votesPercentage[party] = (votesByCountry[0][party]*100 / (votesByCountry[0]["total votes"] - votesByCountry[0]["invalid votes"])).toFixed(2)
   });
   return votesPercentage;
 }

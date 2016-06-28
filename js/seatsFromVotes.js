@@ -13,15 +13,7 @@ function seatsFromVotes(regions, threshold){
     });
   });
 
-  // we need to agregate the party seats into alliances or pacts
-  var seats = [{}];
-  _.keys(pacts).forEach(function(party) {
-    pacts[party].forEach(function(ally) {
-        seats[0][party] = (seats[0][party] + seatsByParty[0][ally]) || seatsByParty[0][ally];
-    });
-  });
-
-  return seats;
+  return seatsByParty;
 }
 
 function transformData(region, threshold){

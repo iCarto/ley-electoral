@@ -45,56 +45,34 @@ var names = {
   "others":     "OTROS"
 };
 
-// If there are several parties with stablished pacts, or one party with different
-// brands we can calculate its seats individually and present it aggregated
-
-var pacts = {
-    'pp':         ['pp'],
-    'psoe':       ['psoe'],
-    'podemos':    ['podemos', 'en_marea', 'compromis_podemos', 'en_comu_podem'],
-    'ciudadanos': ['ciudadanos'],
-    'esquerra':   ['esquerra'],
-    'dyl':        ['dyl'],
-    'pnv':        ['pnv'],
-    'iu':         ['iu'],
-    'bildu':      ['bildu'],
-    'cc':         ['cc'],
-    'pacma':      ['pacma'],
-    'upyd':       ['upyd'],
-    'bng':        ['bng'],
-    'udc':        ['udc'],
-    'vox':        ['vox'],
-    'others':     ['others']
-};
-
 // 2015
 var sqlCountry =  encodeURIComponent(
   'SELECT \'España\' as region, ' +
   'sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes", sum(blank_votes) as "blank votes", ' +
   'sum(pp) as pp, sum(psoe) as psoe, ' +
-  'sum(compromis_podemos) as compromis_podemos, sum(en_comu_podem) as en_comu_podem, sum(en_marea) as en_marea, sum(podemos) as podemos, ' +
+  'coalesce(sum(compromis_podemos), 0) + coalesce(sum(en_comu_podem), 0) + coalesce(sum(en_marea), 0) + coalesce(sum(podemos), 0) as podemos, ' +
   'sum(ciudadanos) as ciudadanos, sum(esquerra) as esquerra, sum(dyl) as dyl, sum(pnv) as pnv, sum(iu_up) as iu, sum(bildu) as bildu, sum(cc) as cc, ' +
   'sum(pacma) as pacma, sum(upyd) as upyd, sum(nos) as bng, sum(udc) as udc, sum(vox) as vox, ' +
-  'sum(gbai) + sum(eb) + sum(ciudadanos_centro_democratico) + sum(extremadura_unida) + sum(izquierda_verdes) + sum(others) + sum(verdes_ecopacifistas) + sum(mes) + sum(pcpe) + sum(proposta_per_illes_balears) + sum(recortes_cero) as others ' +
+  'coalesce(sum(gbai), 0) + coalesce(sum(eb), 0) + coalesce(sum(ciudadanos_centro_democratico), 0) + coalesce(sum(extremadura_unida), 0) + coalesce(sum(izquierda_verdes), 0) + coalesce(sum(others), 0) + coalesce(sum(verdes_ecopacifistas), 0) + coalesce(sum(mes), 0) + coalesce(sum(pcpe), 0) + coalesce(sum(proposta_per_illes_balears), 0) + coalesce(sum(recortes_cero), 0) as others ' +
   ' FROM elections_2015'
 );
 var sqlCCAA =  encodeURIComponent(
   'SELECT ccaa as region, ' +
   'sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes", sum(blank_votes) as "blank votes", ' +
   'sum(pp) as pp, sum(psoe) as psoe, ' +
-  'sum(compromis_podemos) as compromis_podemos, sum(en_comu_podem) as en_comu_podem, sum(en_marea) as en_marea, sum(podemos) as podemos, ' +
+  'coalesce(sum(compromis_podemos), 0) + coalesce(sum(en_comu_podem), 0) + coalesce(sum(en_marea), 0) + coalesce(sum(podemos), 0) as podemos, ' +
   'sum(ciudadanos) as ciudadanos, sum(esquerra) as esquerra, sum(dyl) as dyl, sum(pnv) as pnv, sum(iu_up) as iu, sum(bildu) as bildu, sum(cc) as cc, ' +
   'sum(pacma) as pacma, sum(upyd) as upyd, sum(nos) as bng, sum(udc) as udc, sum(vox) as vox, ' +
-  'sum(gbai) + sum(eb) + sum(ciudadanos_centro_democratico) + sum(extremadura_unida) + sum(izquierda_verdes) + sum(others) + sum(verdes_ecopacifistas) + sum(mes) + sum(pcpe) + sum(proposta_per_illes_balears) + sum(recortes_cero) as others ' +
+  'coalesce(sum(gbai), 0) + coalesce(sum(eb), 0) + coalesce(sum(ciudadanos_centro_democratico), 0) + coalesce(sum(extremadura_unida), 0) + coalesce(sum(izquierda_verdes), 0) + coalesce(sum(others), 0) + coalesce(sum(verdes_ecopacifistas), 0) + coalesce(sum(mes), 0) + coalesce(sum(pcpe), 0) + coalesce(sum(proposta_per_illes_balears), 0) + coalesce(sum(recortes_cero), 0) as others ' +
   ' FROM elections_2015 GROUP BY ccaa'
 );
 var sqlProvince =  encodeURIComponent(
   'SELECT province as region, ' +
   'sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes" , sum(blank_votes) as "blank votes", ' +
   'sum(pp) as pp, sum(psoe) as psoe, ' +
-  'sum(compromis_podemos) as compromis_podemos, sum(en_comu_podem) as en_comu_podem, sum(en_marea) as en_marea, sum(podemos) as podemos, ' +
+  'coalesce(sum(compromis_podemos), 0) + coalesce(sum(en_comu_podem), 0) + coalesce(sum(en_marea), 0) + coalesce(sum(podemos), 0) as podemos, ' +
   'sum(ciudadanos) as ciudadanos, sum(esquerra) as esquerra, sum(dyl) as dyl, sum(pnv) as pnv, sum(iu_up) as iu, sum(bildu) as bildu, sum(cc) as cc, ' +
   'sum(pacma) as pacma, sum(upyd) as upyd, sum(nos) as bng, sum(udc) as udc, sum(vox) as vox, ' +
-  'sum(gbai) + sum(eb) + sum(ciudadanos_centro_democratico) + sum(extremadura_unida) + sum(izquierda_verdes) + sum(others) + sum(verdes_ecopacifistas) + sum(mes) + sum(pcpe) + sum(proposta_per_illes_balears) + sum(recortes_cero) as others ' +
+  'coalesce(sum(gbai), 0) + coalesce(sum(eb), 0) + coalesce(sum(ciudadanos_centro_democratico), 0) + coalesce(sum(extremadura_unida), 0) + coalesce(sum(izquierda_verdes), 0) + coalesce(sum(others), 0) + coalesce(sum(verdes_ecopacifistas), 0) + coalesce(sum(mes), 0) + coalesce(sum(pcpe), 0) + coalesce(sum(proposta_per_illes_balears), 0) + coalesce(sum(recortes_cero), 0) as others ' +
   'FROM elections_2015 GROUP BY province'
 );

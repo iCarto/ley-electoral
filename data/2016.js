@@ -43,55 +43,34 @@ var names = {
   "others":         "OTROS"
 };
 
-// If there are several parties with stablished pacts, or one party with different
-// brands we can calculate its seats individually and present it aggregated
-
-var pacts = {
-    'pp':             ['pp'],
-    'psoe':           ['psoe'],
-    'unidos_podemos': ['unidos_podemos', 'en_marea', 'compromis', 'en_comu_podem'],
-    'ciudadanos':     ['ciudadanos'],
-    'erc':            ['erc'],
-    'cdc':            ['cdc'],
-    'pnv':            ['pnv'],
-    'bildu':          ['bildu'],
-    'cc':             ['cc'],
-    'pacma':          ['pacma'],
-    'recortes_cero':  ['recortes_cero'],
-    'upyd':           ['upyd'],
-    'vox':            ['vox'],
-    'bng':            ['bng'],
-    'others':         ['others']
-};
-
 // 2016
 var sqlCountry =  encodeURIComponent(
   'SELECT \'España\' as region, ' +
   'sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes", sum(blank_votes) as "blank votes", ' +
   'sum(pp) as pp, sum(psoe) as psoe, ' +
-  'sum(compromis) as compromis, sum(en_comu_podem) as en_comu_podem, sum(en_marea) as en_marea, sum(unidos_podemos) as unidos_podemos, ' +
+  'coalesce(sum(compromis), 0) + coalesce(sum(en_comu_podem), 0) + coalesce(sum(en_marea), 0) + coalesce(sum(unidos_podemos), 0) as unidos_podemos, ' +
   'sum(ciudadanos) as ciudadanos, sum(erc) as erc, sum(cdc) as cdc, sum(pnv) as pnv, sum(bildu) as bildu, sum(cc) as cc, ' +
   'sum(pacma) as pacma, sum(recortes_cero) as recortes_cero, sum(upyd) as upyd, sum(vox) as vox, sum(bng) as bng, ' +
-  'sum(pcpe) + sum(others) as others ' +
+  'coalesce(sum(pcpe), 0) + coalesce(sum(others), 0) as others ' +
   ' FROM elections_2016'
 );
 var sqlCCAA =  encodeURIComponent(
   'SELECT ccaa as region, ' +
   'sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes", sum(blank_votes) as "blank votes", ' +
   'sum(pp) as pp, sum(psoe) as psoe, ' +
-  'sum(compromis) as compromis, sum(en_comu_podem) as en_comu_podem, sum(en_marea) as en_marea, sum(unidos_podemos) as unidos_podemos, ' +
+  'coalesce(sum(compromis), 0) + coalesce(sum(en_comu_podem), 0) + coalesce(sum(en_marea), 0) + coalesce(sum(unidos_podemos), 0) as unidos_podemos, ' +
   'sum(ciudadanos) as ciudadanos, sum(erc) as erc, sum(cdc) as cdc, sum(pnv) as pnv, sum(bildu) as bildu, sum(cc) as cc, ' +
   'sum(pacma) as pacma, sum(recortes_cero) as recortes_cero, sum(upyd) as upyd, sum(vox) as vox, sum(bng) as bng, ' +
-  'sum(pcpe) + sum(others) as others ' +
+  'coalesce(sum(pcpe), 0) + coalesce(sum(others), 0) as others ' +
   ' FROM elections_2016 GROUP BY ccaa'
 );
 var sqlProvince =  encodeURIComponent(
   'SELECT province as region, ' +
   'sum(seats) as seats, sum(total_votes) as "total votes", sum(abstention) as abstention, sum(invalid_votes) as "invalid votes" , sum(blank_votes) as "blank votes", ' +
   'sum(pp) as pp, sum(psoe) as psoe, ' +
-  'sum(compromis) as compromis, sum(en_comu_podem) as en_comu_podem, sum(en_marea) as en_marea, sum(unidos_podemos) as unidos_podemos, ' +
+  'coalesce(sum(compromis), 0) + coalesce(sum(en_comu_podem), 0) + coalesce(sum(en_marea), 0) + coalesce(sum(unidos_podemos), 0) as unidos_podemos, ' +
   'sum(ciudadanos) as ciudadanos, sum(erc) as erc, sum(cdc) as cdc, sum(pnv) as pnv, sum(bildu) as bildu, sum(cc) as cc, ' +
   'sum(pacma) as pacma, sum(recortes_cero) as recortes_cero, sum(upyd) as upyd, sum(vox) as vox, sum(bng) as bng, ' +
-  'sum(pcpe) + sum(others) as others ' +
+  'coalesce(sum(pcpe), 0) + coalesce(sum(others), 0) as others ' +
   ' FROM elections_2016 GROUP BY province'
 );
